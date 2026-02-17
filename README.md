@@ -94,6 +94,16 @@ to pull it in.
 
 You then need to add a new Copy Files build phase, set the Destination to Frameworks, and add the GPUImage.framework build product to that. This will allow the framework to be bundled with your application (otherwise, you'll see cryptic "dyld: Library not loaded: @rpath/GPUImage.framework/GPUImage" errors on execution).
 
+## Swift Package Manager ##
+
+GPUImage now includes first-party Swift Package Manager support for iOS (iOS 9 and newer).
+
+In Xcode, add this repository as a package dependency and link the `GPUImage` product to your target, then import it with:
+
+    import GPUImage
+
+The current package target is iOS-only. macOS continues to be supported through the existing Xcode project integration paths above.
+
 ### Documentation ###
 
 Documentation is generated from header comments using appledoc. To build the documentation, switch to the "Documentation" scheme in Xcode. You should ensure that "APPLEDOC_PATH" (a User-Defined build setting) points to an appledoc binary, available on <a href="https://github.com/tomaz/appledoc">Github</a> or through <a href="https://github.com/Homebrew/homebrew">Homebrew</a>. It will also build and install a .docset file, which you can view with your favorite documentation tool.

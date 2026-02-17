@@ -3,6 +3,7 @@
 #import "GPUImageLookupFilter.h"
 #import "GPUImageGaussianBlurFilter.h"
 #import "GPUImageAlphaBlendFilter.h"
+#import "GPUImageResource.h"
 
 @implementation GPUImageSoftEleganceFilter
 
@@ -13,13 +14,8 @@
 		return nil;
     }
 
-#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-    UIImage *image1 = [UIImage imageNamed:@"lookup_soft_elegance_1.png"];
-    UIImage *image2 = [UIImage imageNamed:@"lookup_soft_elegance_2.png"];
-#else
-    NSImage *image1 = [NSImage imageNamed:@"lookup_soft_elegance_1.png"];
-    NSImage *image2 = [NSImage imageNamed:@"lookup_soft_elegance_2.png"];
-#endif
+    GPUImagePlatformImage *image1 = GPUImageLoadImageNamed(@"lookup_soft_elegance_1.png");
+    GPUImagePlatformImage *image2 = GPUImageLoadImageNamed(@"lookup_soft_elegance_2.png");
 
     NSAssert(image1 && image2,
              @"To use GPUImageSoftEleganceFilter you need to add lookup_soft_elegance_1.png and lookup_soft_elegance_2.png from GPUImage/framework/Resources to your application bundle.");
