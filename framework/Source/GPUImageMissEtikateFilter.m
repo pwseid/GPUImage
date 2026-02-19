@@ -1,6 +1,7 @@
 #import "GPUImageMissEtikateFilter.h"
 #import "GPUImagePicture.h"
 #import "GPUImageLookupFilter.h"
+#import "GPUImageResource.h"
 
 @implementation GPUImageMissEtikateFilter
 
@@ -11,11 +12,7 @@
 		return nil;
     }
 
-#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-    UIImage *image = [UIImage imageNamed:@"lookup_miss_etikate.png"];
-#else
-    NSImage *image = [NSImage imageNamed:@"lookup_miss_etikate.png"];
-#endif
+    GPUImagePlatformImage *image = GPUImageLoadImageNamed(@"lookup_miss_etikate.png");
 
     NSAssert(image, @"To use GPUImageMissEtikateFilter you need to add lookup_miss_etikate.png from GPUImage/framework/Resources to your application bundle.");
 
