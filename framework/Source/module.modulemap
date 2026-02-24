@@ -1,0 +1,5 @@
+module GPUImage {
+    umbrella "."
+    export *
+    module * { export * }
+}
