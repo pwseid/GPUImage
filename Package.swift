@@ -29,6 +29,7 @@ let package = Package(
             ],
             publicHeadersPath: "Source/include",
             cSettings: [
+                .define("GLES_SILENCE_DEPRECATION"),
                 .headerSearchPath("Source"),
                 .headerSearchPath("Source/iOS")
             ],
